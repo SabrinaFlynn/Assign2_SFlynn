@@ -4,4 +4,8 @@
     <string name="view_picture">Implicit Intent: View Picture</string>
     <string name="call_an_activity">Explicit Intent: Call an activity</string>
     <string name="sendButton">Send</string>
+    <string name="to">To</string>
+    <string name="subject">Subject:</string>
+    <string name="button_mail">Save</string>
+    <string name="compose">Compose:</string>
 </resources>
