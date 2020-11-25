@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
     public void onClickCall (View view){
-
+        Intent callIntent = new Intent(this, MailActivity.class);
+        MainActivity.this.startActivity(callIntent);
     }
 
 
