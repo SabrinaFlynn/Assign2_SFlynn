@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(viewIntent);
             }
 
+           // opens MailActivity when user clicks Call an Activity
     public void onClickCall (View view){
         Intent callIntent = new Intent(this, MailActivity.class);
         MainActivity.this.startActivity(callIntent);
