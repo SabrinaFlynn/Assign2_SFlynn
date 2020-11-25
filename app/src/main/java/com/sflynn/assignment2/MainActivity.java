@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import java.io.File;
 /**
@@ -19,11 +21,26 @@ https://www.geeksforgeeks.org/android-how-to-open-camera-through-intent-and-disp
 */
 public class MainActivity extends AppCompatActivity {
 
+    TextView openCamera = findViewById(R.id.openCamera);
+    TextView viewPicture = (TextView) findViewById(R.id.viewPicture);
+    TextView callActivity = (TextView)findViewById(R.id.callActivity);
+    Button send = (Button)findViewById(R.id.sendButton);
+    TextView blankText = (TextView)findViewById(R.id.blankView);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView openCamera = findViewById(R.id.openCamera);
+
+        blankText = (TextView)findViewById(R.id.to);
+        Intent toIntent = getIntent();
+        String toStr = toIntent.getStringExtra("to");
+        blankText = (TextView)findViewById(R.id.subject);
+        Intent subjectIntent = getIntent();
+        String subjectStr = subjectIntent.getStringExtra("subject");
+        blankText = (TextView)findViewById(R.id.compose);
+        Intent composeIntent = getIntent();
+        String composeStr = composeIntent.getStringExtra("compose");
     }
     //when user click open camera, camera should open
     public void onClickOpen (View view){
@@ -33,11 +50,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //potential path for gallery
-    public static String getGalleryPath() {
-        String dir;
-        return dir = Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DCIM + "/";
-        }
-    // also potential path for gallery
     final String path = android.os.Environment.DIRECTORY_DCIM;
 
     //When the user clicks view picture, gallery should open
@@ -56,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(callIntent);
     }
 
-
-
     /** Called when the user taps the Send button */
     public void sendMessage(View view) {
-        // Do something in response to button
+        Intent getIntent = getIntent();
+        String strTo = getIntent.getStringExtra("to");
+        String strSubject = getIntent.getStringExtra("subject");
+        String strCompose = getIntent.getStringExtra("compose");
+
     }
-
-
 }
